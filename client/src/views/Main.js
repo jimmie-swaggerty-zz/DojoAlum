@@ -27,6 +27,8 @@ const Main = (props) => {
                         <h4>Category | {post.category}</h4>
                         <p>{post.content}</p>
                         <p>User ID: {post.user_id}</p>
+                        <p>{post.url}</p>
+                        <a href={"/post/update/"+post._id}>Update</a>
                         </div>
                     })}
             </div>

@@ -59,6 +59,7 @@ module.exports = {
     .catch((err) => {
       console.log("error in update: " + err);
       res.json(err);
+      res.status(400).json(err);
     })
 },
 

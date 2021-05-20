@@ -24,7 +24,7 @@ const NavBar = (props) => {
             </Link>
             {status==="logged-in" &&
                 <form className="d-flex">
-                        <button className="btn btn-light me-2 btn-outline-primary" type="button" onClick={e=>{e.preventDefault(); navigate('../events/new')}}>New Event</button>
+                        <button className="btn btn-light me-2 btn-outline-primary" type="button" onClick={e=>{e.preventDefault(); navigate('../post/new')}}>New Post</button>
                         <button className="btn btn-light me-2 btn-outline-primary" type="button" onClick={e=>{e.preventDefault(); Logout()}}>Logout</button>
                 </form>
             }
