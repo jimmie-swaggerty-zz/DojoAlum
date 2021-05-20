@@ -1,4 +1,5 @@
 const Post = require('../models/Post.models');
+const jwt = require('jsonwebtoken');
 
 module.exports = {
   getAll: (req, res) => {
@@ -15,7 +16,13 @@ module.exports = {
   },
 
   create: (req, res) => {
-    Post.create(req.body)
+    console.log(req.body);
+    const post = new Post(req.body);
+    const decodedJwt = jwt.decode(req.cookies.usertoken, { complete: true });
+
+    post.user_id = decodedJwt.payload._id;
+
+    Post.create(post)
       .then((newPost) => {
         console.log(newPost);
         res.json(newPost);
@@ -23,6 +30,7 @@ module.exports = {
       .catch((err) => {
         console.log("error in getAll: " + err);
         res.json(err);
+        res.status(400).json(err);
       })
   },
   
