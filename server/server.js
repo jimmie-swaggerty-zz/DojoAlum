@@ -9,6 +9,6 @@ app.use(cors());
 // mongoose is how you talk to mongodb
 require('./config/mongoose.config');
 // put your routes here
-require('./routes/dojoalum.route')(app);
+require('./routes/dojoalum.routes')(app);
 
 app.listen(port, () => console.log(`Project Group, you ROCK! You have connected to port: ${port} \n\n`));
