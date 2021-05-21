@@ -6,7 +6,6 @@ module.exports = {
     Post.find()
       .sort({ last_name: "ascending" })
       .then((allPost) => {
-        console.log(allPost);
         res.json(allPost);
       })
       .catch((err) => {
@@ -24,7 +23,6 @@ module.exports = {
 
     Post.create(post)
       .then((newPost) => {
-        console.log(newPost);
         res.json(newPost);
       })
       .catch((err) => {
@@ -37,7 +35,6 @@ module.exports = {
   getOne: (req, res) => {
     Post.findById(req.params.id)
     .then((onePost) => { 
-      console.log(onePost);
       res.json(onePost);
     })
     .catch((err) => {

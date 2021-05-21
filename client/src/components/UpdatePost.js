@@ -5,6 +5,7 @@ import PostForm from './PostForm';
 
 const EditPost = (props) => {
   const [ errors, setErrors ] = useState({});
+  const [ authError, setAuthError] = useState("")
   const [ post, setPost ] = useState({
     title: "",
     category:"",
@@ -38,8 +39,12 @@ const EditPost = (props) => {
         navigate('/' + props.id);
       })
       .catch((err) => {
-        console.log(err.response.data.errors);
-        setErrors(err.response.data.errors);
+        if (err.response.status===401){
+            setAuthError("Please sign in to continue")
+        }
+        else{
+            setErrors(err.response.data.errors);
+        }
       })
   }
 
@@ -47,6 +52,7 @@ const EditPost = (props) => {
   return (
     <div>
       <h2>Edit Post</h2>
+      {authError && <p>{authError}</p>}
       <PostForm
         post={ post } 
         setPost={ setPost }
