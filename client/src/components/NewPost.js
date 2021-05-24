@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { navigate } from '@reach/router';
 import PostForm from './PostForm';
 
-const EditPost = (props) => {
+const NewPost = (props) => {
   const [ errors, setErrors ] = useState({});
   const [ post, setPost ] = useState({
     title: "",
@@ -44,4 +44,4 @@ const EditPost = (props) => {
   )
 }
 
-export default EditPost;
+export default NewPost;

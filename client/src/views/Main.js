@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios'
+import React from 'react';
 import ListUsers from '../components/ListUsers'
 import PostFeed from '../components/PostFeed'
 const Main = (props) => {

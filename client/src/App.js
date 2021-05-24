@@ -17,16 +17,14 @@ function App() {
   }
 
   // Get all users for list users, and single user for the profile page
-  const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState();
-  const [userId, setUserId] = useState("")
   useEffect(()=> {
     axios.get('http://localhost:8000/api/user/currentUser',{withCredentials:true})
     .then(res=>{
         setCurrentUser(res.data[0]);
         console.log(res.data[0])
     });
-  },[currentUser])
+  },[])
 
   return (
     <div className="App">

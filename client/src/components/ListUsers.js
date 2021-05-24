@@ -1,8 +1,14 @@
 import React, {useState, useEffect} from 'react';
-import {navigate} from '@reach/router';
 import axios from 'axios';
 
+
 const ListUsers = props => {
+
+	const [users, setUsers] = useState([])
+	const [searchTerm, setSearchTerm] = useState("")
+	// const [userId, setUserId] = useState("")
+
+
 	useEffect(()=> {
 		axios.get('http://localhost:8000/api/user/list')
 		.then(res=>{
@@ -10,10 +16,6 @@ const ListUsers = props => {
 			console.log("res date",res.data)
 		});
 	  },[])
-
-	const [users, setUsers] = useState([])
-	const [searchTerm, setSearchTerm] = useState("")
-	const [userId, setUserId] = useState("")
 
 	return (
 		<div className="user-list">

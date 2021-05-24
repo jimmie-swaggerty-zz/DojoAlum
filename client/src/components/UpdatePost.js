@@ -25,7 +25,7 @@ const EditPost = (props) => {
         console.log(err.response.data);
         navigate("/");
       });
-  }, []);
+  }, [props.id]);
 
   const submitHandler = (e) => {
     e.preventDefault();
