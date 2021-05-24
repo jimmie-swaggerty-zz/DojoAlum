@@ -36,3 +36,31 @@
     transform: rotate(360deg);
   }
 }
+
+.intro {
+  color: white;
+  padding: 5px 10px
+}
+
+.user-badge {
+  color: white;
+  border: 1px black solid;
+  background-color: #0D6EFD;
+  margin: 5px;
+  width: 100%;
+}
+
+.user-badge:hover{
+  background-color: gray
+}
+
+.user-list, .user-list input{
+  justify-content: space-around;
+  display: flexbox;
+  width: 300px;
+  align-self: center;
+  margin: 5px;
+}
+h2 {
+  display:inline-block;
+}

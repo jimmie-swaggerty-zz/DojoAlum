@@ -83,5 +83,15 @@ module.exports = {
     console.log("error in getAll: " + err);
     res.json(err);
   })
+  },
+  getCurrent: (req, res)=>{
+    const decodedJwt = jwt.decode(req.cookies.usertoken, { complete: true });
+    console.log("decoded Jwt",decodedJwt)
+    const id = decodedJwt.payload._id;
+      User.find({_id: id})
+      .then((user) => {
+          res.json(user),
+          console.log(user)}
+    )
   }
 }

@@ -1,19 +1,14 @@
-import React from 'react';
+import React from "react";
 
-const UserProfile = props => {
-
-	return(
-		<div>{props.users.filter(usr => usr._id === props.userId).map(
-			filteredUser => (
-				<>
-					<p key={filteredUser._id} name={filteredUser._id}>
-					{filteredUser.username}
-					</p>
-					<p>{filteredUser.email}</p>
-					</>
-				))}
-		</div>
-	)
-}
+const UserProfile = (props) => {
+  return (
+    <div className="profile-card">
+      <p key={props.user._id} name={props.user._id}>
+        {props.user.username}
+      </p>
+      <p>{props.user.email}</p>
+    </div>
+  );
+};
 
 export default UserProfile;

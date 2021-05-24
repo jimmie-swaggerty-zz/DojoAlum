@@ -20,9 +20,6 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
 
-// mongoose is how you talk to mongodb
-require('./config/mongoose.config');
-
 // put your routes here
 require('./routes/post.routes')(app);
 require('./routes/user.routes')(app);

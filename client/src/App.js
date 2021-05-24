@@ -18,28 +18,26 @@ function App() {
 
   // Get all users for list users, and single user for the profile page
   const [users, setUsers] = useState([]);
-  const [userId, setUserId] = useState("");
-
-  useEffect(() => {
-    const fetchUsers = async () => {
-      const {data} = await axios.get('http://localhost:8000/api/user/list')
-
-      setUsers(data)
-    }
-
-    fetchUsers()
-  }, [])
+  const [currentUser, setCurrentUser] = useState();
+  const [userId, setUserId] = useState("")
+  useEffect(()=> {
+    axios.get('http://localhost:8000/api/user/currentUser',{withCredentials:true})
+    .then(res=>{
+        setCurrentUser(res.data[0]);
+        console.log(res.data[0])
+    });
+  },[currentUser])
 
   return (
     <div className="App">
       <div className="container-flex">
-        <NavBar status={status} updateStatus={updateStatus}/>
+        <NavBar status={status} updateStatus={updateStatus} user={currentUser} setUser={setCurrentUser}/>
       </div>
       <Router>
         <Main status={status} updateStatus={updateStatus} path="/home" default/>
-        <ListUsers users={users} userId={userId} setUserId={setUserId} path="/users" />
-        <UserProfile users={users} userId={userId} setUserId={setUserId} path="/users/profile" />
-        <LogReg path="/login"  updateStatus={updateStatus}/>
+        <ListUsers path="/users" />
+        <UserProfile user={currentUser} path="/users/profile" />
+        <LogReg path="/login" user={currentUser} setUser={setCurrentUser} updateStatus={updateStatus}/>
         <UpdatePost path="post/update/:id"/>
         <NewPost path="post/new" />
       </Router>

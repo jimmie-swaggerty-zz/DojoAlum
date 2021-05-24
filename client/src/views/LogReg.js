@@ -8,7 +8,7 @@ const LogReg = (props) => {
         <div className="container-fluid">
             <div className="row justify-content-center">
                 <div className="col-3 login">
-                    <Login updateStatus={updateStatus} />
+                    <Login updateStatus={updateStatus} setUser={props.setUser}/>
                 </div>
                 <div className="col-3 login">
                     <RegisterUser />
