@@ -9,6 +9,7 @@ import UpdatePost from './components/UpdatePost';
 import NewPost from './components/NewPost'
 import ListUsers from './components/ListUsers';
 import UserProfile from './components/UserProfile';
+import OtherUserProfile from './components/OtherUserProfile'
 
 function App() {
   const [status, setStatus] = useState("logged-out")
@@ -16,18 +17,30 @@ function App() {
     setStatus(status)
   }
 
-  // Get all users for list users, and single user for the profile page
+  //get current user
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState();
-  const [userId, setUserId] = useState("")
+
   useEffect(()=> {
     axios.get('http://localhost:8000/api/user/currentUser',{withCredentials:true})
     .then(res=>{
         setCurrentUser(res.data[0]);
-        console.log(res.data[0])
+        //console.log(res.data[0])
     });
   },[currentUser])
 
+  //get all other users
+  const [searchTerm, setSearchTerm] = useState("")
+  const [userId, setUserId] = useState("")
+
+  useEffect(()=> {
+    axios.get('http://localhost:8000/api/user/list')
+    .then(res=>{
+      setUsers(res.data);
+      //console.log("res date",res.data)
+    });
+    },[])
+//console.log(userId)
   return (
     <div className="App">
       <div className="container-flex">
@@ -35,7 +48,8 @@ function App() {
       </div>
       <Router>
         <Main status={status} updateStatus={updateStatus} path="/home" default/>
-        <ListUsers path="/users" />
+        <ListUsers users={users} searchTerm={searchTerm} setSearchTerm={setSearchTerm} setUserId={setUserId} path="/users" />
+        <OtherUserProfile users={users} userId={userId} path="/users/otherusers" />
         <UserProfile user={currentUser} path="/users/profile" />
         <LogReg path="/login" user={currentUser} setUser={setCurrentUser} updateStatus={updateStatus}/>
         <UpdatePost path="post/update/:id"/>

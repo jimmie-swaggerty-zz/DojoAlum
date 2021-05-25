@@ -3,31 +3,19 @@ import {navigate} from '@reach/router';
 import axios from 'axios';
 
 const ListUsers = props => {
-	useEffect(()=> {
-		axios.get('http://localhost:8000/api/user/list')
-		.then(res=>{
-			setUsers(res.data);
-			console.log("res date",res.data)
-		});
-	  },[])
-
-	const [users, setUsers] = useState([])
-	const [searchTerm, setSearchTerm] = useState("")
-	const [userId, setUserId] = useState("")
 
 	return (
 		<div className="user-list">
 		<h2>Users</h2>
-		<input type="text" placeholder="Search..." onInput={event =>{setSearchTerm(event.target.value)}} />
+		<input type="text" placeholder="Search..." onInput={event =>{props.setSearchTerm(event.target.value)}} />
 		
-		
-		{users.filter((val) => {
-			if(searchTerm === ""){
+		{props.users.filter((val) => {
+			if(props.searchTerm === ""){
 				return val
-			} else if(val.username.toLowerCase().includes(searchTerm.toLowerCase())){
+			} else if(val.username.toLowerCase().includes(props.searchTerm.toLowerCase())){
 				return val
 			}
-		}).map(filteredUser => (<p key={filteredUser._id} name={filteredUser._id} className="user-badge">
+		}).map(filteredUser => (<p key={filteredUser._id} name={filteredUser._id} className="user-badge" onClick={(e) => {props.setUserId(filteredUser._id); navigate('/users/otherusers')}}>
 			{filteredUser.username}
 				</p>
 				))}
