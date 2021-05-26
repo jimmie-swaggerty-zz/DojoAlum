@@ -11,7 +11,6 @@ const Main = (props) => {
             <p>This application is designed to be a center for CodingDojo alumni to communicate about upcoming job opportunities, to continue assisting eachother on code questions, and to share fun and new information!</p>
             <div className="container">
                 <div className="row align-items-start">
-                    
                     <PostFeed className="col-3"/>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import { navigate } from '@reach/router';
+import { navigate, Link } from '@reach/router';
 
 const PostFeed = props => {
     const [loaded, setLoaded]= useState(false)
@@ -19,12 +19,10 @@ const PostFeed = props => {
         <div className="feed">
             {loaded > 0 && posts.map((post, idx)=>{
             return <div className="post" key={idx}>
-                <p>{post.title}</p>
-                <p>Category | {post.category}</p>
+                <div className="postheader"><span className="category-tag">{post.category}</span> <b>{post.title}</b> <Link to={'/users/profile/'+post.user_id._id}>{post.user_id.username}</Link></div>
                 <p>{post.content}</p>
-                <p>User ID: {post.user_id._id}</p>
-                <p>Username: {post.user_id.username}</p>
                 <p>{post.url}</p>
+                {post.url && <button className="btn btn-light me-2 btn-outline-primary" type="button" onClick={e=>{e.preventDefault(); navigate(post.url)}}>Link</button>}
                 <button className="btn btn-light me-2 btn-outline-primary" type="button" onClick={e=>{e.preventDefault(); navigate('/post/update/'+post._id)}}>Update</button>
             </div>
             })}

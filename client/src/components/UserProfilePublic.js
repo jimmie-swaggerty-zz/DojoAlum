@@ -10,7 +10,7 @@ const UserProfilePublic = props => {
 		  setUser(res.data);
 		setLoaded(true)
 		});
-		},[])
+		})
 	return(
 		<div>
 			{loaded && <div>

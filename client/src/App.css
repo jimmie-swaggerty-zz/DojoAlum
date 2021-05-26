@@ -64,3 +64,22 @@
 h2 {
   display:inline-block;
 }
+
+.category-tag{
+  background-color: #0D6EFD;
+  padding: 5px;
+  color: white
+}
+
+.post {
+  border: 2px #0D6EFD solid;
+  margin: 10px;
+  width: 500px;
+}
+
+.postheader {
+  display: flex;
+  justify-content: space-between;
+  background-color: #61dafb;
+  padding: 5px
+}
