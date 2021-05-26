@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import {navigate} from '@reach/router'
 
 
 const ListUsers = props => {
@@ -20,16 +21,15 @@ const ListUsers = props => {
 	return (
 		<div className="user-list">
 		<h2>Users</h2>
-		<input type="text" placeholder="Search..." onInput={event =>{setSearchTerm(event.target.value)}} />
+		<input type="text" placeholder="Search..." onInput={event =>{props.setSearchTerm(event.target.value)}} />
 		
-		
-		{users.filter((val) => {
-			if(searchTerm === ""){
+		{props.users.filter((val) => {
+			if(props.searchTerm === ""){
 				return val
-			} else if(val.username.toLowerCase().includes(searchTerm.toLowerCase())){
+			} else if(val.username.toLowerCase().includes(props.searchTerm.toLowerCase())){
 				return val
 			}
-		}).map(filteredUser => (<p key={filteredUser._id} name={filteredUser._id} className="user-badge">
+		}).map(filteredUser => (<p key={filteredUser._id} name={filteredUser._id} className="user-badge" onClick={(e) => {props.setUserId(filteredUser._id); navigate('/users/otherusers')}}>
 			{filteredUser.username}
 				</p>
 				))}
