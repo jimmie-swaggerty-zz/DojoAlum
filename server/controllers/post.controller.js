@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 module.exports = {
   getAll: (req, res) => {
     Post.find()
-      .sort({ last_name: "ascending" })
+      .populate("user_id", "username")
       .then((allPost) => {
         res.json(allPost);
       })
@@ -44,7 +44,16 @@ module.exports = {
 },
   
   update: (req, res) => {
+    const decodedJwt = jwt.decode(req.cookies.usertoken, { complete: true });
+    console.log("decoded Jwt",decodedJwt)
+    const id = decodedJwt.payload._id;
     console.log("update");
+    if(id !== req.body.user_id){
+      res.status(403).json({
+        message: "You are not authorized to edit this post"
+      })
+    }
+    else{
     Post.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
       runValidators: true,
@@ -57,7 +66,7 @@ module.exports = {
       console.log("error in update: " + err);
       res.json(err);
       res.status(400).json(err);
-    })
+    })}
 },
 
   delete: (req, res) => {

@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import { navigate } from '@reach/router';
 
 const PostFeed = props => {
     const [loaded, setLoaded]= useState(false)
@@ -15,16 +16,16 @@ const PostFeed = props => {
 
 	return (
 		<div className="feed-container">
-		{/* <h2>Posts</h2> */}
         <div className="feed">
             {loaded > 0 && posts.map((post, idx)=>{
             return <div className="post" key={idx}>
                 <p>{post.title}</p>
                 <p>Category | {post.category}</p>
                 <p>{post.content}</p>
-                <p>User ID: {post.user_id}</p>
+                <p>User ID: {post.user_id._id}</p>
+                <p>Username: {post.user_id.username}</p>
                 <p>{post.url}</p>
-                <a href={"/post/update/"+post._id}>Update</a>
+                <button className="btn btn-light me-2 btn-outline-primary" type="button" onClick={e=>{e.preventDefault(); navigate('/post/update/'+post._id)}}>Update</button>
             </div>
             })}
         </div>

@@ -42,6 +42,9 @@ const EditPost = (props) => {
         if (err.response.status===401){
             setAuthError("Please sign in to continue")
         }
+        else if (err.response.status===403) {
+            setAuthError(err.response.data.message)
+          }
         else{
             setErrors(err.response.data.errors);
         }

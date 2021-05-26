@@ -9,7 +9,7 @@ const NavBar = (props) => {
     const [currentStatus, setCurrentStatus] = useState(status)
 
     const Logout = (e) => {
-        axios.post("http://localhost:8000/api/user/logout")
+        axios.post("http://localhost:8000/api/user/logout",{},{withCredentials: true})
         updateStatus(currentStatus)
         setCurrentStatus("logged-out")
         props.setUser()
