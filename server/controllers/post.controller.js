@@ -80,4 +80,14 @@ module.exports = {
       res.json(err);
     })
 },
+  getUsers: (req, res) => {
+    Post.find({user_id: req.params.id})
+      .then((allPost) => {
+        res.json(allPost);
+      })
+      .catch((err) => {
+        console.log("error in getAll: " + err);
+        res.json(err);
+      })
+},
 }

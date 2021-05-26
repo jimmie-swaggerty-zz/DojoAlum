@@ -93,5 +93,13 @@ module.exports = {
           res.json(user),
           console.log(user)}
     )
+  },
+  //get individual user
+  getOne: (req, res)=>{
+    User.findById(req.params.id)
+      .then((user) => {
+          res.json(user),
+          console.log(user)}
+    )
   }
 }

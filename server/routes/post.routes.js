@@ -3,6 +3,7 @@ const { authenticate } = require('../config/jwt.config');
 
 module.exports = (app) => {
   app.get('/api/post', PostController.getAll);
+  app.get('/api/users/posts/:id', PostController.getUsers);
   app.post('/api/post', authenticate,  PostController.create);
   app.get('/api/post/:id', PostController.getOne);
   app.put('/api/post/:id', authenticate, PostController.update);

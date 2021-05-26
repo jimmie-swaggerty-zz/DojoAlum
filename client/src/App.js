@@ -10,6 +10,7 @@ import NewPost from './components/NewPost'
 import ListUsers from './components/ListUsers';
 import UserProfile from './components/UserProfile';
 import OtherUserProfile from './components/OtherUserProfile'
+import UserProfilePublic from './components/UserProfilePublic'
 
 function App() {
   const [status, setStatus] = useState("logged-out")
@@ -52,6 +53,7 @@ function App() {
         <ListUsers users={users} searchTerm={searchTerm} setSearchTerm={setSearchTerm} setUserId={setUserId} path="/users" />
         <OtherUserProfile users={users} userId={userId} path="/users/otherusers" />
         <UserProfile user={currentUser} path="/users/profile" />
+        <UserProfilePublic path="/users/profile/:id" />
         <LogReg path="/login" user={currentUser} setUser={setCurrentUser} updateStatus={updateStatus}/>
         <UpdatePost path="post/update/:id"/>
         <NewPost path="post/new" />

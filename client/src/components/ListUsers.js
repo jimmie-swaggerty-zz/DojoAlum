@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import {navigate} from '@reach/router'
+import {navigate, Link} from '@reach/router'
 
 
 const ListUsers = props => {
@@ -30,7 +30,7 @@ const ListUsers = props => {
 				return val
 			}
 		}).map(filteredUser => (<p key={filteredUser._id} name={filteredUser._id} className="user-badge" onClick={(e) => {props.setUserId(filteredUser._id); navigate('/users/otherusers')}}>
-			{filteredUser.username}
+			{filteredUser.username} <Link to={"/users/profile/"+filteredUser._id}>Profile</Link>
 				</p>
 				))}
 		</div>
