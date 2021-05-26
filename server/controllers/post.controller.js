@@ -72,7 +72,7 @@ module.exports = {
   delete: (req, res) => {
     Post.findByIdAndDelete(req.params.id)
     .then((deletePost) => {
-      console.log(deltePost);
+      console.log(deletePost);
       res.json(deletePost);
     })
     .catch((err) => {

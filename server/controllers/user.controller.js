@@ -87,12 +87,13 @@ module.exports = {
   getCurrent: (req, res)=>{
     const decodedJwt = jwt.decode(req.cookies.usertoken, { complete: true });
     console.log("decoded Jwt",decodedJwt)
+    if(decodedJwt!== null){
     const id = decodedJwt.payload._id;
       User.find({_id: id})
       .then((user) => {
           res.json(user),
           console.log(user)}
-    )
+    )}
   },
   //get individual user
   getOne: (req, res)=>{

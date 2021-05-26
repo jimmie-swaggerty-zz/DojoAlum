@@ -29,7 +29,7 @@ function App() {
         setCurrentUser(res.data[0]);
         //console.log(res.data[0])
     });
-  },[status])
+  },[])
 
   //get all other users
   const [searchTerm, setSearchTerm] = useState("")
@@ -49,7 +49,7 @@ function App() {
         <NavBar status={status} updateStatus={updateStatus} user={currentUser} setUser={setCurrentUser}/>
       </div>
       <Router>
-        <Main status={status} updateStatus={updateStatus} path="/home" default/>
+        <Main status={status} updateStatus={updateStatus} user={currentUser} path="/home" default/>
         <ListUsers users={users} searchTerm={searchTerm} setSearchTerm={setSearchTerm} setUserId={setUserId} path="/users" />
         <OtherUserProfile users={users} userId={userId} path="/users/otherusers" />
         <UserProfile user={currentUser} path="/users/profile" />
