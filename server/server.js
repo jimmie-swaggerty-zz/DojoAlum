@@ -23,5 +23,6 @@ app.use(express.urlencoded({ extended: true}));
 // put your routes here
 require('./routes/post.routes')(app);
 require('./routes/user.routes')(app);
+require('./routes/comment.routes')(app);
 
 app.listen(port, () => console.log(`Project Group, you ROCK! You have connected to port: ${port} \n\n`));

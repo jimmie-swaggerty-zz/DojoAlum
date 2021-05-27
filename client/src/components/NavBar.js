@@ -23,13 +23,13 @@ const NavBar = (props) => {
                 Dojo Alumni
             </Link>
             {props.user !== undefined &&
-            <>
+            <div>
                 <form className="d-flex">
                     <span className="intro">Hello {props.user.username}</span>
                         <button className="btn btn-light me-2 btn-outline-primary" type="button" onClick={e=>{e.preventDefault(); navigate('/users/profile')}}>My Profile</button>
                         <button className="btn btn-light me-2 btn-outline-primary" type="button" onClick={e=>{e.preventDefault(); Logout()}}>Logout</button>
                 </form>
-            </>
+            </div>
             }
             {props.user ===undefined &&
                 <form className="d-flex">

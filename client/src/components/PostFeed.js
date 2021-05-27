@@ -82,11 +82,13 @@ const PostFeed = props => {
                 </div>
                 <div className="postbody">
                     <p className="postcontent">{post.content}</p>
+                    <button className="btn btn-light me-2 btn-outline-primary" type="button" onClick={e=>{e.preventDefault(); navigate('/post/'+post._id)}}>View</button>
                     {post.url && <button className="btn btn-light me-2 btn-outline-primary" type="button" onClick={e=>{e.preventDefault(); navigate(post.url)}}>Link</button>}
                     {props.user !== undefined && props.user._id===post.user_id._id && <>
                         <button className="btn btn-light me-2 btn-outline-primary" type="button" onClick={e=>{e.preventDefault(); navigate('/post/update/'+post._id)}}>Update</button>
                         <DeleteButton pid={post._id}/>
                         </>}
+                        <p>Comments: {post.comments.length}</p>
                 </div>
             </div>
             })}

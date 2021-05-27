@@ -5,9 +5,11 @@ module.exports = {
   getAll: (req, res) => {
     Post.find()
       .populate("user_id", "username")
+      .populate("comments", "comment username")
       .sort({createdAt: "descending"})
       .then((allPost) => {
         res.json(allPost);
+        // console.log(allPost)
       })
       .catch((err) => {
         console.log("error in getAll: " + err);
@@ -35,6 +37,8 @@ module.exports = {
   
   getOne: (req, res) => {
     Post.findById(req.params.id)
+    .populate("user_id", "username")
+    .populate("comments", "comment user_id")
     .then((onePost) => { 
       res.json(onePost);
     })
