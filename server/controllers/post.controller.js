@@ -5,6 +5,7 @@ module.exports = {
   getAll: (req, res) => {
     Post.find()
       .populate("user_id", "username")
+      .sort({createdAt: "descending"})
       .then((allPost) => {
         res.json(allPost);
       })

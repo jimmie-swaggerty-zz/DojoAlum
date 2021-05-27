@@ -28,8 +28,8 @@
   justify-content: space-around;
   display: inline-block;
   width: 90%;
-  margin: 5px;
   border: 2px #0D6EFD solid;
+  border-radius: 5px;
 }
 
 .user-list input {
@@ -40,30 +40,42 @@ h2 {
   display:inline-block;
 }
 
-.category-tag{
+/* .category-tag{
   padding: 5px;
-  color: white;
+  color:black;
+  background-color: white;
 }
 .category-tag:hover {
   background-color: lightblue;
   padding: 5px;
   color: #0D6EFD;
-}
+} */
 
 .post {
   border: 2px #0D6EFD solid;
   margin-bottom: 20px;
   width: 90%;
-  display: inline-block
+  display: inline-block;
+  border-radius: 5px;
 }
 
 .postheader {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-around; */
   background-color: #0D6EFD;
-  height: 40px;
   color: white;
   font-size: larger;
+  padding: 5px;
+  margin: 0px;
+}
+
+.postsubhead {
+  display: flex;
+  justify-content: space-between;
+  background-color: #0D6EFD;
+  color: white;
+  padding: 5px;
+  margin: 0px;
 }
 
 .postbody {
@@ -75,12 +87,13 @@ h2 {
   padding: 10px;
 }
 
-.postform {
+/* .postform {
   border: 2px #0D6EFD solid;
+  border-radius: 5px;
   margin: 20px;
   width: 90%;
   display: inline-block
-}
+} */
 
 .formheader{
     display: flex;
@@ -89,7 +102,8 @@ h2 {
     height: 35px;
     color:white;
     font-size: larger;
-    width: 100%
+    width: 100%;
+    margin: 0px
 }
 
 .formbody{
@@ -114,13 +128,13 @@ h2 {
 .usernamelink {
   color:white;
   padding: 5px;
-  text-decoration: none;
+  /* text-decoration: none; */
 }
 
 .usernamelink:hover {
-  background-color: lightblue;
+  /* background-color: lightblue; */
   padding: 5px;
-  color: #0D6EFD;
+  color:  lightblue;
   text-decoration: none;
 }
 
