@@ -19,65 +19,72 @@ const PostForm = (props) => {
   }
 
   return (
-    <div>
-      <h4>Post Form</h4>
-        <form onSubmit={ submitHandler }>
-          <div>
-            <label>Title</label>
-            {
-              errors.title ?
-                <span className="error-text">{errors.title.message}</span>
-                : null
-            }
-            <input
-              type="text"
-              name="title"
-              value={ post.title }
-              onChange={ (e) => inputChange(e) }
-              />
-          </div>
-          <div>
-            <label>Category</label>
-            {
-              errors.category ?
-                <span className="error-text">{errors.category.message}</span>
-                : null
-            }
-            <select
-              name="category"
-              value={ post.category }
-              onChange={ (e) => inputChange(e) }
-              >
-              <option value=""></option>
-              {
-                categories.map((category, index) => (
-                  <option value={ category } key={ 'category-' + index }>{ category }</option>
-                ))
-              }
-            </select>
-          </div>
-          <div>
+    <div className="feed">
+      <div className="post align-middle">
+        <div className="formheader"><b>New Post</b></div>
+        <form onSubmit={ submitHandler } className="formbody">
+            <div className="row">
+              <div class="col">
+
+                {
+                  errors.title ?
+                    <span className="error-text">{errors.title.message}</span>
+                    : null
+                }
+                <input
+                  type="text"
+                  className="form-control"
+                  name="title"
+                  value={ post.title }
+                  onChange={ (e) => inputChange(e) }
+                  />
+              </div>
+              <div className="col">
+                {
+                  errors.category ?
+                    <span className="error-text">{errors.category.message}</span>
+                    : null
+                }
+                <select
+                  name="category"
+                  value={ post.category }
+                  onChange={ (e) => inputChange(e) }
+                  className="form-control"
+                  >
+                  <option>Category</option>
+                  {
+                    categories.map((category, index) => (
+                      <option value={ category } key={ 'category-' + index }>{ category }</option>
+                    ))
+                  }
+                </select>
+                </div>
+            </div>
+              <div class="form-group">
               <label>Message</label>
               <textarea
               type="textarea"
               name="content"
+              className="form-control"
               value={post.content}
               onChange={(e) => inputChange(e)}
               />
-          </div>
-          <div>
+              </div>
+          <div className="form-group">
               <label>URL</label>
               <input
                 type="URL"
                 name="url"
+                className="form-control"
                 value={post.url}
                 onChange={ (e) => inputChange(e) }
                 />
 
           </div>
-          <button>{ buttonLabel }</button>
-          <button onClick={ () => navigate("/") } className="cancelBtn">Cancel</button>
+          <button className="btn btn-light me-2 btn-outline-primary">{ buttonLabel }</button>
+          <button onClick={ () => navigate("/") } className="btn btn-light me-2 btn-outline-primary">Cancel</button>
         </form>
+        </div>
     </div>
   )
 }
