@@ -2,10 +2,8 @@ import React from 'react';
 import ListUsers from '../components/ListUsers'
 import PostFeed from '../components/PostFeed'
 import NewPost from '../components/NewPost'
+
 const Main = (props) => {
-
-
-
     return (
         <div>
                 <h1>Welcome CodingDojo Alum!</h1>
