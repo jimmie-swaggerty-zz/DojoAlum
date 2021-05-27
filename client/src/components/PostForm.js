@@ -35,6 +35,7 @@ const PostForm = (props) => {
                   type="text"
                   className="form-control"
                   name="title"
+                  placeholder="Subject"
                   value={ post.title }
                   onChange={ (e) => inputChange(e) }
                   />
@@ -61,22 +62,22 @@ const PostForm = (props) => {
                 </div>
             </div>
               <div class="form-group">
-              <label>Message</label>
               <textarea
               type="textarea"
               name="content"
               className="form-control"
               value={post.content}
+              placeholder="Message"
               onChange={(e) => inputChange(e)}
               />
               </div>
           <div className="form-group">
-              <label>URL</label>
               <input
                 type="URL"
                 name="url"
                 className="form-control"
                 value={post.url}
+                placeholder="URL"
                 onChange={ (e) => inputChange(e) }
                 />
 
