@@ -1,4 +1,4 @@
-const Post = require('../models/Post.models');
+const Post = require('../models/post.models');
 const jwt = require('jsonwebtoken');
 
 module.exports = {
