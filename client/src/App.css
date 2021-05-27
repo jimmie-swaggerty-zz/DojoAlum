@@ -1,3 +1,7 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
 .App {
   text-align: center;
 }
@@ -36,7 +40,11 @@ h2 {
   display:inline-block;
 }
 
-.category-tag {
+.category-tag{
+  padding: 5px;
+  color: white;
+}
+.category-tag:hover {
   background-color: lightblue;
   padding: 5px;
   color: #0D6EFD;
@@ -114,4 +122,8 @@ h2 {
   padding: 5px;
   color: #0D6EFD;
   text-decoration: none;
+}
+
+input, textarea {
+  margin-bottom: 10px;
 }
