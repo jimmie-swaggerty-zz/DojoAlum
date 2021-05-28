@@ -34,6 +34,8 @@ const PostFeed = props => {
         const filterPlaceholder = "Filter Posts"
 
 	return (
+    <div>
+        <div className="welcome"></div>
         <div className="feed">
             <div className="col">
                 <select
@@ -73,9 +75,9 @@ const PostFeed = props => {
             else {
                 style = shareStyle
             }
-            return <div className="post align-middle" key={idx}>
+            return (<div className="post align-middle" key={idx}>
                 <div className="postheader"  style={style}>
-                    <span className="category-tag">{post.category}</span>&nbsp; | &nbsp; {post.title}
+                    <span className="category-tag"><b>{post.category}</b></span>&nbsp; | &nbsp; {post.title}
                 </div>
                 <div className="postsubhead"  style={style}>
                     <Link to={'/users/profile/'+post.user_id._id} className="usernamelink">{post.user_id.username}</Link>{Moment(post.createdAt).format('LLLL')}
@@ -91,11 +93,11 @@ const PostFeed = props => {
                         <button className="btn btn-light me-2 btn-outline-primary" type="button" onClick={e=>{e.preventDefault(); navigate('/post/update/'+post._id)}}>Update</button>
                         <DeleteButton pid={post._id}/>
                         </>}
-                        <p>Comments: {post.comments.length}</p>
+                        {/* <p>Comments: {post.comments.length}</p> */}
                 </div>
             </div>
-
-            })}
+                    )})}
+        </div>
         </div>
 	)
 }

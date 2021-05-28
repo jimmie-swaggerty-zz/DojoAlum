@@ -33,6 +33,8 @@ const PostPage = (props) => {
         style = shareStyle
     }
     return(
+        <div>
+        <div className="headerbody"><p className="welcome"></p></div>
         <div className="post align-middle">
                 {loaded && <><div className="postheader"  style={style}>
                     <span className="category-tag">{post.category}</span>&nbsp; | &nbsp; {post.title}
@@ -47,7 +49,7 @@ const PostPage = (props) => {
                         <button className="btn btn-light me-2 btn-outline-primary" type="button" onClick={e=>{e.preventDefault(); navigate('/post/update/'+post._id)}}>Update</button>
                         <DeleteButton pid={post._id}/>
                         </div>}
-                            {
+                            {/* {
                             post.comments ? (
                             <>
                                 {
@@ -67,8 +69,9 @@ const PostPage = (props) => {
                             </>
                             ) 
                             : null
-                        }
+                        } */}
                 </div></>}
+        </div>
         </div>
 
 )}

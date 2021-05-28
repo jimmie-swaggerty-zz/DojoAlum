@@ -23,7 +23,7 @@ const UserProfile = (props) => {
         setUser(res.data);
         //console.log(res.data)
       });
-  }, []);
+  }, [props.id]);
 
   return (
     <div>
@@ -50,10 +50,25 @@ const UserProfile = (props) => {
             <div className="post">
               <div className="formheader">{user.username}'s posts</div>
             </div>
-            {posts.length>0 && posts.map((pt) => (
+            {posts.length>0 && posts.map((pt) =>{
+                  //header styles
+                  const JobStyle = { backgroundColor: '#0D6EFD' }
+                  const CodeStyle = { backgroundColor: '#6da8fd' }
+                  const shareStyle = { backgroundColor: '#094db1' }
+                  var style = {}
+                  if (pt.category==="Job Posting"){
+                      style = JobStyle
+                  }
+                  else if ([pt].category==="Share"){
+                      style= CodeStyle
+                  }
+                  else {
+                      style = shareStyle
+                  }
+              return(
               <div className="post align-middle">
-                <div className="postheader">
-                  <span className="category-tag">{pt.category}</span>{" "}
+                <div className="postheader" style={style}>
+                  <span className="category-tag">{pt.category}</span>&nbsp;|&nbsp;
                   <b>{pt.title}</b>{" "}
                   <Link
                     to={"/users/profile/" + pt.user_id._id}
@@ -91,7 +106,7 @@ const UserProfile = (props) => {
                   </>
                 </div>
               </div>
-            ))}
+            )})}
 			</div>
 		  </div>
 		</div>

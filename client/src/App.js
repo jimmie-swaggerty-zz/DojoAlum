@@ -30,7 +30,7 @@ function App() {
         setCurrentUser(res.data[0]);
         //console.log(res.data[0])
     });
-  },[])
+  },[currentUser])
 
   //get all other users
   const [searchTerm, setSearchTerm] = useState("")
