@@ -91,11 +91,11 @@ h2 {
     display: flex;
     justify-content: space-around;
     background-color: #0D6EFD;
-    height: 35px;
     color:white;
     font-size: larger;
     width: 100%;
-    margin: 0px
+    margin: 0px;
+    padding: 5px;
 }
 
 .formbody{
@@ -130,6 +130,17 @@ h2 {
   text-decoration: none;
 }
 
-input, textarea {
+input, textarea, select {
   margin-bottom: 10px;
+  padding-left: 5px;
+  margin-top: 10px;
+}
+
+label {
+  width: 100px
+}
+
+.center{
+  display: flex;
+  justify-content: space-around;
 }

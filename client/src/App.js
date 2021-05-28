@@ -28,9 +28,10 @@ function App() {
     axios.get('http://localhost:8000/api/user/currentUser',{withCredentials:true})
     .then(res=>{
         setCurrentUser(res.data[0]);
+        updateStatus("logged-in")
         //console.log(res.data[0])
     });
-  },[currentUser])
+  },[])
 
   //get all other users
   const [searchTerm, setSearchTerm] = useState("")

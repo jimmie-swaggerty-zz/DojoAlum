@@ -2,6 +2,7 @@ import React from 'react';
 import ListUsers from '../components/ListUsers'
 import PostFeed from '../components/PostFeed'
 import NewPost from '../components/NewPost'
+import Login from '../components/Login'
 
 const Main = (props) => {
     return (
@@ -13,6 +14,9 @@ const Main = (props) => {
             <div className="container-fluid">
                 <div className="row align-top">
                     <div className="col">       
+                        {props.status === "logged-out" &&<Login 
+                        updateStatus={props.updateStatus}
+                        setUser={props.setUser}/>}
                         <ListUsers/>
                     </div>
                     <div className="col-8">
