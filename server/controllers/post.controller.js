@@ -40,24 +40,14 @@ module.exports = {
     getOne: (req, res) => {
         Post.findById(req.params.id)
             .populate("user_id", "username")
-            .populate("comments", "comment user_id");
-        if (id !== req.body.user_id) {
-            res.status(403).json({
-                message: "You are not authorized to edit this post",
-            });
-        } else {
-            Post.findByIdAndUpdate(req.params.id, req.body, {
-                new: true,
-                runValidators: true,
+            .populate("comments", "comment user_id")
+            .then((onePost) => {
+                res.json(onePost);
             })
-                .then((onePost) => {
-                    res.json(onePost);
-                })
-                .catch((err) => {
-                    console.log("error in getOne: " + err);
-                    res.json(err);
-                });
-        }
+            .catch((err) => {
+                console.log("error in getOne: " + err);
+                res.json(err);
+            });
     },
 
     update: (req, res) => {

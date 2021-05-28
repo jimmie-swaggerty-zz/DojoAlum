@@ -14,7 +14,15 @@
 
 .user-badge {
   color: white;
-  border: 1px black solid;
+  background-color: #0D6EFD;
+  width:100%;
+  margin: 5px 0px;
+  border-radius: 5px;
+}
+
+.user-label {
+  color: white;
+  border-radius: 5px;
   background-color: #0D6EFD;
   width:100%;
   margin: 5px 0px;

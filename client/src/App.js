@@ -57,9 +57,9 @@ function App() {
         <UserProfile user={currentUser} path="/users/profile" />
         <UserProfilePublic path="/users/profile/:id" />
         <LogReg path="/login" user={currentUser} setUser={setCurrentUser} updateStatus={updateStatus}/>
-        <UpdatePost path="post/update/:id"/>
-        <NewPost path="post/new" />
-        <PostPage path="post/:id"/>
+        <UpdatePost path="/post/update/:id"/>
+        <NewPost path="/post/new" />
+        <PostPage path="/post/:id"/>
       </Router>
     </div>
   );

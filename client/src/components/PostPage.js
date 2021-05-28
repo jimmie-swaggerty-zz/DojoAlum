@@ -14,13 +14,14 @@ const PostPage = (props) => {
     const shareStyle = { backgroundColor: '#094db1' }
 
     useEffect(()=>{
+        console.log(props.id)
         axios.get('http://localhost:8000/api/post/'+props.id)
             .then(res=>{
                 setPost(res.data);
                 console.log(res.data)
                 setLoaded(true)
             });
-    },[])
+    },[props.id])
 
     var style = {}
     if (post.category==="Job Posting"){

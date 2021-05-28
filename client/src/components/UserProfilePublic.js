@@ -37,11 +37,11 @@ const UserProfile = (props) => {
             <div className="post">
               <div className="formheader">User Info</div>
               <div className="formbody">
-                <div className="user-badge">Username</div>
+                <div className="user-label">Username</div>
                 <p key={user._id} name={user._id}>
                   {user.username}
                 </p>
-                <div className="user-badge">Email</div>
+                <div className="user-label">Email</div>
                 <p>{user.email}</p>
               </div>
             </div>
