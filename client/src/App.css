@@ -24,16 +24,8 @@
   background-color: gray;
 }
 
-.user-list{
-  justify-content: space-around;
-  display: inline-block;
-  width: 90%;
-  border: 2px #0D6EFD solid;
-  border-radius: 5px;
-}
-
 .user-list input {
-  width: 100%
+  width: 100%;
 }
 
 h2 {

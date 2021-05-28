@@ -18,7 +18,7 @@ const ListUsers = props => {
 	  },[])
 
 	return (
-		<div className="user-list">
+		<div className="post">
 			<div className="formheader">Users</div>
 			<div className="formbody">
 				<input type="text" placeholder="Search..." onInput={event =>{setSearchTerm(event.target.value)}} className="form-control" />
