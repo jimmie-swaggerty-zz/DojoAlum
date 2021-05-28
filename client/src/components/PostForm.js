@@ -18,8 +18,8 @@ const PostForm = (props) => {
 
     // this works for ALL keys inside of the state object!!
     const inputChange = (e) => {
-        console.log("e.target.name:  " + e.target.name);
-        console.log("e.target.value: " + e.target.value);
+        // console.log("e.target.name:  " + e.target.name);
+        // console.log("e.target.value: " + e.target.value);
         let newStateObject = { ...post }; // get a copy of the current state object
         newStateObject[e.target.name] = e.target.value;
         setPost(newStateObject);
