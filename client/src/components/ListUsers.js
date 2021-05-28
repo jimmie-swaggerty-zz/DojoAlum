@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import {navigate, Link} from '@reach/router'
+import {navigate} from '@reach/router'
 
 
 const ListUsers = props => {
@@ -13,7 +13,7 @@ const ListUsers = props => {
 		axios.get('http://localhost:8000/api/user/list')
 		.then(res=>{
 			setUsers(res.data);
-			console.log("res date",res.data)
+			//console.log("res date",res.data)
 		});
 	  },[])
 
