@@ -24,16 +24,17 @@
   background-color: gray;
 }
 
-.user-list{
+/* .user-list{
   justify-content: space-around;
   display: inline-block;
   width: 90%;
   margin: 5px;
   border: 2px #0D6EFD solid;
-}
+  border-radius: 5px;
+} */
 
 .user-list input {
-  width: 100%
+  width: 100%;
 }
 
 h2 {
@@ -54,7 +55,8 @@ h2 {
   border: 2px #0D6EFD solid;
   margin-bottom: 20px;
   width: 90%;
-  display: inline-block
+  display: inline-block;
+  border-radius: 5px;
 }
 
 .postheader {
@@ -64,6 +66,7 @@ h2 {
   height: 40px;
   color: white;
   font-size: larger;
+  padding-left: "5px"
 }
 
 .postbody {
