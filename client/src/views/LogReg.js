@@ -3,14 +3,21 @@ import Login from "../components/Login";
 import RegisterUser from "../components/RegisterUser";
 
 const LogReg = (props) => {
-    const {updateStatus} = props
+    const { updateStatus } = props;
     return (
-        <div className="container-fluid">
-            <div className="row justify-content-center">
-                <div className="col-3 login">
-                    <Login updateStatus={updateStatus} setUser={props.setUser}/>
+        <div className="container justify-content-center">
+            <div className="headerbody">
+                <p className="welcome">
+                </p>
+            </div>
+            <div className="col-md-4 offset-md-4">
+                <div className="col">
+                    <Login
+                        updateStatus={updateStatus}
+                        setUser={props.setUser}
+                    />
                 </div>
-                <div className="col-3 login">
+                <div className="col">
                     <RegisterUser />
                 </div>
             </div>

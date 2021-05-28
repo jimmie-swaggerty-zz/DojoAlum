@@ -10,19 +10,19 @@ const NavBar = (props) => {
 
     const Logout = (e) => {
         axios.post("http://localhost:8000/api/user/logout",{},{withCredentials: true})
-        updateStatus(currentStatus)
         setCurrentStatus("logged-out")
-        navigate('/login')
+        updateStatus(currentStatus)
+        navigate('/home')
     }
 
     return (
     <nav className="navbar navbar-dark bg-primary">
         <div className="container-fluid">
             <Link className="navbar-brand" to="/home">
-                <img src="" alt="" width="30" height="24"/>
+                {/* <img src="" alt="" width="30" height="24"/> */}
                 Dojo Alumni
             </Link>
-            {props.user !== undefined &&
+            {props.status === "logged-in" &&
             <div>
                 <form className="d-flex">
                     <span className="intro">Hello {props.user.username}</span>
@@ -31,11 +31,11 @@ const NavBar = (props) => {
                 </form>
             </div>
             }
-            {props.user ===undefined &&
+            {props.status === "logged-out" &&
                 <form className="d-flex">
                     <button className="btn btn-light me-2 btn-outline-primary" type="button" onClick={
                         e=>{e.preventDefault(); navigate('/login');}}>
-                        Log In
+                        Log In/Register
                     </button>
                 </form>
             }
