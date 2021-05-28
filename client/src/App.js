@@ -11,6 +11,7 @@ import ListUsers from './components/ListUsers';
 import UserProfile from './components/UserProfile';
 import OtherUserProfile from './components/OtherUserProfile'
 import UserProfilePublic from './components/UserProfilePublic'
+import PostPage from './components/PostPage'
 
 function App() {
   const [status, setStatus] = useState("logged-out")
@@ -57,6 +58,7 @@ function App() {
         <LogReg path="/login" user={currentUser} setUser={setCurrentUser} updateStatus={updateStatus}/>
         <UpdatePost path="post/update/:id"/>
         <NewPost path="post/new" />
+        <PostPage path="post/:id"/>
       </Router>
     </div>
   );
