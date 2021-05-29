@@ -59,7 +59,7 @@ const UserProfile = (props) => {
                   if (pt.category==="Job Posting"){
                       style = JobStyle
                   }
-                  else if ([pt].category==="Share"){
+                  else if (pt.category==="Share"){
                       style= CodeStyle
                   }
                   else {
