@@ -2,6 +2,7 @@ import { navigate, Link } from '@reach/router';
 import React from 'react'
 import axios from "axios";
 import { useState } from 'react/cjs/react.development';
+import {BsFillHouseDoorFill} from 'react-icons/bs';
 
 const NavBar = (props) => {
 
@@ -19,6 +20,7 @@ const NavBar = (props) => {
     <nav className="navbar navbar-dark bg-primary">
         <div className="container-fluid">
             <Link className="navbar-brand" to="/home">
+                <BsFillHouseDoorFill onClick={navigate("/home")}/> &nbsp;
                 {/* <img src="" alt="" width="30" height="24"/> */}
                 Dojo Alumni
             </Link>
