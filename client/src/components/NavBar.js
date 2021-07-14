@@ -15,6 +15,7 @@ const NavBar = (props) => {
         updateStatus(currentStatus)
         navigate('/home')
     }
+    
 
     return (
     <nav className="navbar navbar-dark bg-primary">

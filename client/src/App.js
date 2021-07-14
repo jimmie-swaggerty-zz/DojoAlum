@@ -13,6 +13,8 @@ import OtherUserProfile from './components/OtherUserProfile'
 import UserProfilePublic from './components/UserProfilePublic'
 import PostPage from './components/PostPage'
 
+import {userContext} from './userContext';
+
 function App() {
   const [status, setStatus] = useState("logged-out")
   const updateStatus=(status)=>{

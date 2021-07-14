@@ -91,7 +91,7 @@ const UserProfile = (props) => {
                       Link
                     </button>
 			)}
-                  <>
+                  <div>
                     <button
                       className="btn btn-light me-2 btn-outline-primary"
                       type="button"
@@ -103,7 +103,7 @@ const UserProfile = (props) => {
                       Update
                     </button>
                     <DeleteButton pid={pt._id} />
-                  </>
+                  </div>
                 </div>
               </div>
             )})}

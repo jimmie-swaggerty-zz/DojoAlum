@@ -81,7 +81,7 @@ const UserProfile = (props) => {
                         </button>
                         {props.user !== undefined &&
                           props.user._id === pt.user_id._id && (
-                            <>
+                            <div>
                               <button
                                 className="btn btn-light me-2 btn-outline-primary"
                                 type="button"
@@ -93,7 +93,7 @@ const UserProfile = (props) => {
                                 Update
                               </button>
                               <DeleteButton pid={pt._id} />
-                            </>
+                            </div>
                           )}
                       </div>
                     )}

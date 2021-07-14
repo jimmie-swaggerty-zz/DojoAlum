@@ -152,3 +152,7 @@ label {
   display: flex;
   justify-content: space-around;
 }
+
+.editbuttons {
+  display: inline-block
+}

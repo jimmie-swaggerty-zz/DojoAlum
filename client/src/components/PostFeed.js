@@ -89,11 +89,11 @@ const PostFeed = props => {
                     {post.url && <button className="btn btn-light me-2 btn-outline-primary" type="button" onClick={e=>{e.preventDefault(); window.open(post.url,"_blank")}}>Link</button>}
                     
                     {/* should filter only the posts buttons that are by the user */}
-                    {props.user !== undefined && props.user._id===post.user_id._id && <>
+                    {props.user !== undefined && props.user._id===post.user_id._id && <div className="editbuttons">
                         <button className="btn btn-light me-2 btn-outline-primary" type="button" onClick={e=>{e.preventDefault(); navigate('/post/update/'+post._id)}}>Update</button>
                         <DeleteButton pid={post._id}/>
-                        </>}
-                        {/* <p>Comments: {post.comments.length}</p> */}
+                        </div>}
+                        <p>Comments: {post.comments.length}</p>
                 </div>
             </div>
                     )})}

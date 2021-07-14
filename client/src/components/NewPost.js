@@ -31,7 +31,7 @@ const NewPost = (props) => {
 
 
   return (
-    <>
+    <div>
       <PostForm
         post={ post } 
         setPost={ setPost }
@@ -39,7 +39,7 @@ const NewPost = (props) => {
         submitHandler={ submitHandler }
         buttonLabel={ "Post" }
         />
-    </>
+    </div>
   )
 }
 
